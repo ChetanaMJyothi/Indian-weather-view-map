@@ -33,4 +33,6 @@ app.use((error,req, res, next) => {
     res.json({message: error.message || "Unknown error occured"})
 });
 
- mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@atlascluster.kgkrn95.mongodb.net/India?retryWrites=true&w=majority`).then(()=>{app.listen(5000);console.log("password")}).catch(err=>{console.log(err)}) 
+ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@atlascluster.kgkrn95.mongodb.net/India?retryWrites=true&w=majority`)
+ .then(()=>{app.listen(process.env.PORT || 5000)})
+ .catch(err=>{console.log(err)}) 
